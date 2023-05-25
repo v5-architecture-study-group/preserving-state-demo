@@ -12,7 +12,6 @@ import com.vaadin.flow.spring.annotation.SpringComponent;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.example.demo.preservingstate.data.Contact;
 import org.example.demo.preservingstate.data.ContactRepository;
-import org.example.demo.preservingstate.state.ViewState;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,7 +22,7 @@ import java.util.stream.Stream;
 @SpringComponent
 @RouteScope
 @RouteScopeOwner(ViewWithUrlParameters.class)
-class UrlParameterViewState implements ViewState {
+class UrlParameterViewState {
 
     private static final Logger log = LoggerFactory.getLogger(UrlParameterViewState.class);
     private static final String QUERY_PARAM_SELECTION = "selection";
@@ -85,7 +84,6 @@ class UrlParameterViewState implements ViewState {
         return asc ? GridSortOrder.asc(column).build().stream() : GridSortOrder.desc(column).build().stream();
     }
 
-    @Override
     public void storeContactGridState(Grid<Contact> grid) {
         if (loading) {
             return;
@@ -105,7 +103,6 @@ class UrlParameterViewState implements ViewState {
         ui.getPage().getHistory().pushState(null, location);
     }
 
-    @Override
     public void loadContactGridState(Grid<Contact> grid) {
         if (loading) {
             return;
