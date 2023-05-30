@@ -12,8 +12,9 @@ import java.time.Instant;
 @Route("/ui-scoped")
 public class UIScopedRoute extends VerticalLayout {
 
-    public UIScopedRoute() {
+    public UIScopedRoute(UIScopedSubview subview) {
         add(new H1("I'm a UIScope:d route and I was created on " + Instant.now()));
+        add(subview);
         add(new Button("Go to route scoped view", evt -> getUI().ifPresent(ui -> ui.navigate(RouteScopedRoute.class))));
     }
 }

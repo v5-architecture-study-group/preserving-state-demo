@@ -5,13 +5,11 @@ import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.spring.annotation.UIScope;
 
 import java.time.Instant;
 
 @PreserveOnRefresh
 @Route("/another-preserved-on-refresh")
-@UIScope
 public class AnotherPreservedOnRefreshRoute extends VerticalLayout {
 
     public AnotherPreservedOnRefreshRoute() {
